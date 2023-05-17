@@ -83,7 +83,8 @@ def agregar_cancion():
 #Esta función carga todas las canciones del archivo csv a la lista general de canciones
 def cargar_canciones():
     canciones = []
-    with open('top10s.csv', newline='') as archivo_csv:
+    with open('top10s.csv', newline='', encoding = 'Windows-1252') as archivo_csv:#'encoding = 'Windows-1252' no es necesario si ya tiene ese encoding
+        #en su computadora, pero por si algo lo pongo para que le pueda funcionar, sino no es capaz de leer el archivo.csv
         lector_csv = csv.reader(archivo_csv)
         next(lector_csv)  # Saltar la fila de encabezado
         for fila in lector_csv:
